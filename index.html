@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de privacidad — Capto</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #0A1F14;
+    --surface: #10291C;
+    --text: #EAF3EC;
+    --text-muted: #9FB6A8;
+    --accent: #4ADE80;
+    --border: #1E3D2B;
+    --max-width: 720px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+  }
+  header {
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  h1 {
+    font-size: 28px;
+    margin: 0 0 8px;
+    color: var(--text);
+  }
+  h2 {
+    font-size: 19px;
+    margin: 36px 0 12px;
+    color: var(--accent);
+  }
+  p, li {
+    font-size: 16px;
+    color: var(--text);
+  }
+  .meta {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 0;
+  }
+  ul {
+    padding-left: 20px;
+  }
+  li {
+    margin-bottom: 8px;
+  }
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin: 16px 0;
+  }
+  .card strong {
+    color: var(--accent);
+  }
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+  code {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 14px;
+  }
+  @media (max-width: 480px) {
+    h1 { font-size: 24px; }
+    main { padding: 24px 16px 64px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Política de privacidad de Capto</h1>
+    <p class="meta">Fecha de entrada en vigor: 25 de agosto de 2026</p>
+    <p class="meta">Responsable: Rei — contacto: <a href="mailto:forcubaniphone@icloud.com">forcubaniphone@icloud.com</a></p>
+  </header>
+
+  <p>
+    Capto es una aplicación para identificar plantas, consultar sus cuidados y diagnosticar
+    problemas de salud a partir de fotografías. Esta política explica, de forma clara y
+    completa, qué datos se procesan, cómo se procesan y qué control tienes sobre ellos.
+  </p>
+
+  <div class="card">
+    <strong>Resumen rápido:</strong> Capto no requiere cuenta ni inicio de sesión. No
+    incorpora publicidad ni herramientas de seguimiento o analítica. Las fotos que tomas se
+    envían de forma puntual a servicios de terceros para identificarlas o diagnosticarlas, pero
+    no se almacenan en ningún servidor nuestro. Todo lo demás (tu jardín, la ficha de cuidados
+    guardada) vive únicamente en tu dispositivo.
+  </div>
+
+  <h2>1. Qué datos procesa Capto</h2>
+  <p>Capto procesa un único tipo de dato personal: las <strong>fotografías de plantas</strong> que tomas con la cámara o seleccionas de tu galería para identificar una especie o diagnosticar su estado de salud.</p>
+  <ul>
+    <li>No se solicita ni se almacena ningún identificador personal: no hay registro, no hay cuenta, no hay email de inicio de sesión, no hay nombre de usuario.</li>
+    <li>No se recopila información de ubicación, contactos, ni datos de otras apps o dispositivos.</li>
+    <li>No se utilizan cookies, SDKs de analítica ni identificadores publicitarios.</li>
+  </ul>
+
+  <h2>2. Cómo se procesan las fotos</h2>
+  <p>Cuando identificas una planta o solicitas un diagnóstico de salud, el flujo es el siguiente:</p>
+  <ul>
+    <li>La app comprime la fotografía en tu propio dispositivo antes de enviarla.</li>
+    <li>La imagen se envía, en formato base64 y por conexión cifrada (HTTPS), a nuestro servidor intermedio (<em>proxy</em>), cuya única función es reenviar la petición a los servicios de identificación y diagnóstico.</li>
+    <li>
+      Nuestro proxy reenvía la imagen a:
+      <ul>
+        <li><strong>PlantNet</strong> (<a href="https://plantnet.org" target="_blank" rel="noopener">plantnet.org</a>) — para identificar la especie. Consulta su política de privacidad en su sitio web.</li>
+        <li><strong>OpenAI</strong> (modelo GPT-4o) — para generar la ficha de cuidados y el diagnóstico de salud. Consulta su política en <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">openai.com/policies/privacy-policy</a>.</li>
+      </ul>
+    </li>
+    <li><strong>Nuestro proxy no almacena las fotos.</strong> Es un intermediario sin estado (<em>stateless</em>): recibe la imagen, la reenvía, devuelve la respuesta y no conserva ninguna copia una vez completada la petición. No tenemos base de datos de imágenes ni servidores donde se guarden fotos de usuarios.</li>
+    <li>El proxy nunca contiene las claves de acceso de PlantNet u OpenAI en la app: esas credenciales solo existen en el servidor, por lo que la app en sí no puede acceder a ellas ni exponerlas.</li>
+  </ul>
+
+  <h2>3. Qué se guarda en tu dispositivo (y solo en tu dispositivo)</h2>
+  <p>Toda la información persistente de Capto se guarda <strong>localmente</strong>, usando el almacenamiento propio del sistema operativo (AsyncStorage) y el directorio de documentos de la app:</p>
+  <ul>
+    <li><strong>Mi Jardín:</strong> las plantas que guardas, junto con una copia de sus fotos, se almacenan únicamente en tu teléfono. No se sincronizan con ningún servidor.</li>
+    <li><strong>Caché de cuidados:</strong> la ficha de cuidados generada se guarda localmente para no tener que volver a consultarla cada vez.</li>
+    <li>Nada de esto sale de tu dispositivo salvo el envío puntual de la foto descrito en la sección 2.</li>
+  </ul>
+  <p>
+    Puedes borrar toda esta información en cualquier momento desde
+    <strong>Ajustes → Borrar Mi Jardín</strong>, que elimina de forma permanente las plantas
+    guardadas y sus fotos de tu dispositivo. Esta acción no se puede deshacer.
+  </p>
+
+  <h2>4. Sin seguimiento, sin publicidad, sin analítica</h2>
+  <p>Capto (en esta primera versión) no incluye:</p>
+  <ul>
+    <li>Herramientas de analítica de uso (no medimos qué pantallas visitas ni cuánto tiempo pasas en la app).</li>
+    <li>Publicidad ni redes publicitarias.</li>
+    <li>Identificadores de seguimiento entre apps (no usamos el IDFA de Apple).</li>
+    <li>Inicio de sesión con redes sociales ni con Apple/Google.</li>
+  </ul>
+
+  <h2>5. Terceros que procesan datos por nosotros</h2>
+  <table style="width:100%; border-collapse: collapse; margin: 12px 0;">
+    <tbody>
+      <tr style="border-bottom: 1px solid var(--border);">
+        <td style="padding: 8px 0; color: var(--text-muted);">Servicio</td>
+        <td style="padding: 8px 0; color: var(--text-muted);">Finalidad</td>
+        <td style="padding: 8px 0; color: var(--text-muted);">Dato enviado</td>
+      </tr>
+      <tr style="border-bottom: 1px solid var(--border);">
+        <td style="padding: 8px 0;">PlantNet</td>
+        <td style="padding: 8px 0;">Identificación de especie</td>
+        <td style="padding: 8px 0;">Foto (sin metadatos personales)</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 0;">OpenAI (GPT-4o)</td>
+        <td style="padding: 8px 0;">Ficha de cuidados y diagnóstico</td>
+        <td style="padding: 8px 0;">Foto (sin metadatos personales)</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Ninguna foto se envía junto a un identificador de usuario, email o dato que pueda vincularla a tu identidad: el envío es anónimo desde el punto de vista de Capto.</p>
+
+  <h2>6. Conservación de datos</h2>
+  <p>
+    No conservamos ningún dato en nuestros servidores: el proxy es un simple reenviador sin
+    almacenamiento persistente. Los datos que sí persisten (jardín, caché de cuidados) están
+    exclusivamente en tu dispositivo y se conservan hasta que tú decidas borrarlos o
+    desinstales la app.
+  </p>
+
+  <h2>7. Uso por menores</h2>
+  <p>
+    Capto no está dirigida específicamente a menores de edad y no recopila conscientemente
+    datos personales identificables de menores. Al no requerir registro ni cuenta, la app no
+    solicita edad ni ningún dato personal en ningún momento.
+  </p>
+
+  <h2>8. Tus derechos (RGPD / Reglamento General de Protección de Datos)</h2>
+  <p>
+    Si te encuentras en el Espacio Económico Europeo, el Reglamento (UE) 2016/679 (RGPD) te
+    reconoce derechos de acceso, rectificación, supresión, limitación del tratamiento,
+    portabilidad y oposición sobre tus datos personales.
+  </p>
+  <p>
+    En la práctica, como Capto no almacena datos personales en ningún servidor propio (todo
+    vive en tu dispositivo), el ejercicio de estos derechos se traduce en:
+  </p>
+  <ul>
+    <li><strong>Acceso y portabilidad:</strong> toda tu información (Mi Jardín, cuidados guardados) está disponible directamente en la app, en tu dispositivo.</li>
+    <li><strong>Supresión:</strong> usa Ajustes → Borrar Mi Jardín, o desinstala la app, para eliminar todos tus datos locales de forma inmediata.</li>
+    <li>Para cualquier consulta relacionada con el tratamiento realizado por PlantNet u OpenAI durante el procesamiento puntual de una foto, dirígete directamente a sus políticas de privacidad enlazadas en la sección 5.</li>
+  </ul>
+  <p>Para cualquier otra duda sobre esta política, puedes escribirnos a <a href="mailto:forcubaniphone@icloud.com">forcubaniphone@icloud.com</a>.</p>
+
+  <h2>9. Cambios en esta política</h2>
+  <p>
+    Podemos actualizar esta política si cambia el funcionamiento de la app (por ejemplo, si se
+    añaden cuentas de usuario o nuevos servicios de terceros en futuras versiones). Cualquier
+    cambio relevante se reflejará actualizando la fecha de "entrada en vigor" al inicio de este
+    documento, y cuando el cambio sea significativo lo anunciaremos dentro de la propia app.
+  </p>
+
+  <h2>10. Jurisdicción</h2>
+  <p>
+    Esta política se rige por la legislación española y, en lo aplicable, por el RGPD de la
+    Unión Europea. Para cualquier controversia relacionada con la privacidad, serán competentes
+    los tribunales de España, sin perjuicio de los derechos que la normativa de protección de
+    datos reconozca al usuario en su lugar de residencia.
+  </p>
+
+  <footer>
+    <p>Capto — desarrollado por Rei. Contacto: <a href="mailto:forcubaniphone@icloud.com">forcubaniphone@icloud.com</a></p>
+    <p>Consulta también nuestros <a href="./terminos.html">Términos de uso</a>.</p>
+  </footer>
+</main>
+</body>
+</html>
