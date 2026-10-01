@@ -97,7 +97,7 @@
 <main>
   <header>
     <h1>Política de privacidad de Capto</h1>
-    <p class="meta">Fecha de entrada en vigor: 25 de agosto de 2026</p>
+    <p class="meta">Fecha de entrada en vigor: 1 de octubre de 2026</p>
     <p class="meta">Responsable: Rei — contacto: <a href="mailto:forcubaniphone@icloud.com">forcubaniphone@icloud.com</a></p>
   </header>
 
@@ -108,18 +108,21 @@
   </p>
 
   <div class="card">
-    <strong>Resumen rápido:</strong> Capto no requiere cuenta ni inicio de sesión. No
-    incorpora publicidad ni herramientas de seguimiento o analítica. Las fotos que tomas se
-    envían de forma puntual a servicios de terceros para identificarlas o diagnosticarlas, pero
-    no se almacenan en ningún servidor nuestro. Todo lo demás (tu jardín, la ficha de cuidados
-    guardada) vive únicamente en tu dispositivo.
+    <strong>Resumen rápido:</strong> Capto no requiere cuenta ni inicio de sesión. No incorpora
+    publicidad, analítica ni seguimiento. Las fotos que tomas se transmiten de forma puntual a
+    servicios de terceros para identificar o diagnosticar plantas. La versión de publicación
+    prevista también permite consultar un catálogo y, solo si lo eliges, usar una ubicación
+    aproximada para mostrar observaciones cercanas. No publiques ni enlaces esta copia hasta
+    comprobar que coincide con el build que se va a distribuir.
   </div>
 
   <h2>1. Qué datos procesa Capto</h2>
-  <p>Capto procesa un único tipo de dato personal: las <strong>fotografías de plantas</strong> que tomas con la cámara o seleccionas de tu galería para identificar una especie o diagnosticar su estado de salud.</p>
+  <p>Según las funciones que uses, Capto puede tratar los siguientes datos:</p>
   <ul>
-    <li>No se solicita ni se almacena ningún identificador personal: no hay registro, no hay cuenta, no hay email de inicio de sesión, no hay nombre de usuario.</li>
-    <li>No se recopila información de ubicación, contactos, ni datos de otras apps o dispositivos.</li>
+    <li><strong>Fotografías de plantas:</strong> las que tomas con la cámara o seleccionas de tu galería para identificar una especie o diagnosticar su estado de salud.</li>
+    <li><strong>Ubicación aproximada opcional:</strong> solo después de pulsar «Usar mi ubicación». La coordenada se redondea a dos decimales antes de guardarse o transmitirse. La ubicación precisa entregada por el sistema no se persiste ni se transmite.</li>
+    <li><strong>Consultas y datos botánicos:</strong> nombres de plantas, taxones y resultados de catálogo, cuidados, observaciones o toxicidad que consultas o guardas.</li>
+    <li>No se solicita ningún identificador personal: no hay registro, cuenta, email de inicio de sesión ni nombre de usuario.</li>
     <li>No se utilizan cookies, SDKs de analítica ni identificadores publicitarios.</li>
   </ul>
 
@@ -135,16 +138,29 @@
         <li><strong>OpenAI</strong> (modelo GPT-4o) — para generar la ficha de cuidados y el diagnóstico de salud. Consulta su política en <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">openai.com/policies/privacy-policy</a>.</li>
       </ul>
     </li>
-    <li><strong>Nuestro proxy no almacena las fotos.</strong> Es un intermediario sin estado (<em>stateless</em>): recibe la imagen, la reenvía, devuelve la respuesta y no conserva ninguna copia una vez completada la petición. No tenemos base de datos de imágenes ni servidores donde se guarden fotos de usuarios.</li>
+    <li>La aplicación y su caché compartida de catálogo no están diseñadas para conservar fotos. Las condiciones de conservación, registros y otros tratamientos de PlantNet, OpenAI y del alojamiento del proxy se rigen por sus propios términos y deben revisarse antes de publicar.</li>
     <li>El proxy nunca contiene las claves de acceso de PlantNet u OpenAI en la app: esas credenciales solo existen en el servidor, por lo que la app en sí no puede acceder a ellas ni exponerlas.</li>
   </ul>
 
-  <h2>3. Qué se guarda en tu dispositivo (y solo en tu dispositivo)</h2>
-  <p>Toda la información persistente de Capto se guarda <strong>localmente</strong>, usando el almacenamiento propio del sistema operativo (AsyncStorage) y el directorio de documentos de la app:</p>
+  <h2>3. Catálogo y ubicación contextual opcional</h2>
+  <p>
+    Esta sección describe las funciones de catálogo y descubrimiento previstas para la versión de
+    publicación. Antes de desplegarlas, se debe confirmar que están integradas, que sus proveedores
+    están autorizados y que esta política coincide con el comportamiento final.
+  </p>
+  <ul>
+    <li><strong>Catálogo:</strong> las consultas de nombre y taxón se envían al proxy para consultar Perenual. Un nombre español puede pasar por OpenAI únicamente para resolver un nombre científico o texto botánico permitido.</li>
+    <li><strong>Observaciones cercanas:</strong> tras tu acción explícita, la coordenada aproximada se transmite al proxy y a GBIF para consultar observaciones históricas dentro de un radio fijo. No se usa para seguimiento ni ubicación en segundo plano.</li>
+    <li><strong>Datos de toxicidad:</strong> Capto 1.0 no obtiene ni muestra datos de toxicidad de Perenual. El contrato técnico conserva este campo como desconocido por compatibilidad.</li>
+  </ul>
+
+  <h2>4. Qué se guarda en tu dispositivo</h2>
+  <p>La información persistente asociada al dispositivo se guarda <strong>localmente</strong>, usando el almacenamiento propio del sistema operativo (AsyncStorage) y el directorio de documentos de la app:</p>
   <ul>
     <li><strong>Mi Jardín:</strong> las plantas que guardas, junto con una copia de sus fotos, se almacenan únicamente en tu teléfono. No se sincronizan con ningún servidor.</li>
     <li><strong>Caché de cuidados:</strong> la ficha de cuidados generada se guarda localmente para no tener que volver a consultarla cada vez.</li>
-    <li>Nada de esto sale de tu dispositivo salvo el envío puntual de la foto descrito en la sección 2.</li>
+    <li><strong>Preferencia de ubicación:</strong> ciudad, país y coordenadas redondeadas a dos decimales, si decides configurarlas.</li>
+    <li><strong>Cachés locales:</strong> resultados de catálogo, fichas y observaciones para poder reutilizar datos guardados.</li>
   </ul>
   <p>
     Puedes borrar toda esta información en cualquier momento desde
@@ -152,7 +168,14 @@
     guardadas y sus fotos de tu dispositivo. Esta acción no se puede deshacer.
   </p>
 
-  <h2>4. Sin seguimiento, sin publicidad, sin analítica</h2>
+  <p>
+    La versión de publicación prevista también usa una caché compartida para consultas de catálogo
+    y mapeos permitidos. Esa caché no debe contener fotografías, coordenadas, cuentas ni
+    identificadores de usuario. Antes del despliegue se debe comprobar la configuración efectiva de
+    la caché y la retención de registros del alojamiento.
+  </p>
+
+  <h2>5. Sin seguimiento, sin publicidad, sin analítica</h2>
   <p>Capto (en esta primera versión) no incluye:</p>
   <ul>
     <li>Herramientas de analítica de uso (no medimos qué pantallas visitas ni cuánto tiempo pasas en la app).</li>
@@ -161,7 +184,7 @@
     <li>Inicio de sesión con redes sociales ni con Apple/Google.</li>
   </ul>
 
-  <h2>5. Terceros que procesan datos por nosotros</h2>
+  <h2>6. Terceros y transmisión de datos</h2>
   <table style="width:100%; border-collapse: collapse; margin: 12px 0;">
     <tbody>
       <tr style="border-bottom: 1px solid var(--border);">
@@ -174,48 +197,66 @@
         <td style="padding: 8px 0;">Identificación de especie</td>
         <td style="padding: 8px 0;">Foto (sin metadatos personales)</td>
       </tr>
-      <tr>
-        <td style="padding: 8px 0;">OpenAI (GPT-4o)</td>
-        <td style="padding: 8px 0;">Ficha de cuidados y diagnóstico</td>
-        <td style="padding: 8px 0;">Foto (sin metadatos personales)</td>
-      </tr>
-    </tbody>
-  </table>
-  <p>Ninguna foto se envía junto a un identificador de usuario, email o dato que pueda vincularla a tu identidad: el envío es anónimo desde el punto de vista de Capto.</p>
-
-  <h2>6. Conservación de datos</h2>
+       <tr>
+         <td style="padding: 8px 0;">OpenAI (GPT-4o)</td>
+          <td style="padding: 8px 0;">Ficha de cuidados, diagnóstico y copy botánico permitido</td>
+          <td style="padding: 8px 0;">Foto para cuidados o diagnóstico; consulta botánica cuando corresponda</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--border);">
+          <td style="padding: 8px 0;">Perenual</td>
+          <td style="padding: 8px 0;">Búsqueda y ficha reducida de catálogo</td>
+          <td style="padding: 8px 0;">Consulta de planta, nombre científico o taxón</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--border);">
+          <td style="padding: 8px 0;">GBIF</td>
+          <td style="padding: 8px 0;">Observaciones botánicas cercanas</td>
+          <td style="padding: 8px 0;">Coordenada aproximada redondeada y parámetros de consulta</td>
+        </tr>
+      </tbody>
+    </table>
   <p>
-    No conservamos ningún dato en nuestros servidores: el proxy es un simple reenviador sin
-    almacenamiento persistente. Los datos que sí persisten (jardín, caché de cuidados) están
-    exclusivamente en tu dispositivo y se conservan hasta que tú decidas borrarlos o
-    desinstales la app.
+    Estas transmisiones no implican por sí solas una misma clasificación de recopilación para cada
+    tercero. Antes de enviar la app, se deben revisar los términos, licencias, retención y prácticas
+    efectivas de cada proveedor y completar App Privacy de Apple dato por dato, incluidos los
+    tratamientos de terceros. La ausencia de cuenta en Capto no excluye que un tercero trate los
+    datos que recibe según sus propias condiciones.
   </p>
 
-  <h2>7. Uso por menores</h2>
+  <h2>7. Conservación de datos</h2>
+  <p>
+    Los datos locales (jardín, caché de cuidados, preferencia de ubicación y cachés de catálogo u
+    observaciones) se conservan en el dispositivo hasta que se borren desde la app cuando exista
+    esa acción, se borren los datos de la aplicación o se desinstale. La caché compartida prevista
+    para catálogo conserva resultados y mapeos durante periodos limitados de servicio, no fotos ni
+    ubicación. La conservación de datos por terceros y registros de alojamiento es una verificación
+    pendiente antes de publicar; no afirmamos plazos que no podemos comprobar.
+  </p>
+
+  <h2>8. Uso por menores</h2>
   <p>
     Capto no está dirigida específicamente a menores de edad y no recopila conscientemente
     datos personales identificables de menores. Al no requerir registro ni cuenta, la app no
     solicita edad ni ningún dato personal en ningún momento.
   </p>
 
-  <h2>8. Tus derechos (RGPD / Reglamento General de Protección de Datos)</h2>
+  <h2>9. Tus derechos (RGPD / Reglamento General de Protección de Datos)</h2>
   <p>
     Si te encuentras en el Espacio Económico Europeo, el Reglamento (UE) 2016/679 (RGPD) te
     reconoce derechos de acceso, rectificación, supresión, limitación del tratamiento,
     portabilidad y oposición sobre tus datos personales.
   </p>
   <p>
-    En la práctica, como Capto no almacena datos personales en ningún servidor propio (todo
-    vive en tu dispositivo), el ejercicio de estos derechos se traduce en:
+    En la práctica, puedes gestionar los datos locales de Capto desde el dispositivo. Para datos
+    que reciban proveedores externos, consulta también sus políticas y mecanismos aplicables:
   </p>
   <ul>
-    <li><strong>Acceso y portabilidad:</strong> toda tu información (Mi Jardín, cuidados guardados) está disponible directamente en la app, en tu dispositivo.</li>
-    <li><strong>Supresión:</strong> usa Ajustes → Borrar Mi Jardín, o desinstala la app, para eliminar todos tus datos locales de forma inmediata.</li>
-    <li>Para cualquier consulta relacionada con el tratamiento realizado por PlantNet u OpenAI durante el procesamiento puntual de una foto, dirígete directamente a sus políticas de privacidad enlazadas en la sección 5.</li>
+    <li><strong>Acceso y portabilidad:</strong> tus datos locales (Mi Jardín, cuidados y preferencias) están disponibles en tu dispositivo.</li>
+    <li><strong>Supresión:</strong> usa las opciones de borrado disponibles o desinstala la app para eliminar sus datos locales.</li>
+    <li>Para consultas sobre datos tratados por PlantNet, OpenAI, Perenual o GBIF, revisa las políticas y canales de cada proveedor antes de publicar sus enlaces definitivos.</li>
   </ul>
   <p>Para cualquier otra duda sobre esta política, puedes escribirnos a <a href="mailto:forcubaniphone@icloud.com">forcubaniphone@icloud.com</a>.</p>
 
-  <h2>9. Cambios en esta política</h2>
+  <h2>10. Cambios en esta política</h2>
   <p>
     Podemos actualizar esta política si cambia el funcionamiento de la app (por ejemplo, si se
     añaden cuentas de usuario o nuevos servicios de terceros en futuras versiones). Cualquier
@@ -223,7 +264,7 @@
     documento, y cuando el cambio sea significativo lo anunciaremos dentro de la propia app.
   </p>
 
-  <h2>10. Jurisdicción</h2>
+  <h2>11. Jurisdicción</h2>
   <p>
     Esta política se rige por la legislación española y, en lo aplicable, por el RGPD de la
     Unión Europea. Para cualquier controversia relacionada con la privacidad, serán competentes
